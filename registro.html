@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro e Inicio de Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #message-container {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8d7da; /* Color de fondo para mensajes de error */
+            color: #721c24; /* Color de texto para mensajes de error */
+            border: 1px solid #f5c6cb; /* Borde para mensajes de error */
+            border-radius: 4px;
+            display: none; /* Oculta el contenedor inicialmente */
+        }
+
+        .success {
+            background-color: #d4edda; /* Color de fondo para mensajes de éxito */
+            color: #155724; /* Color de texto para mensajes de éxito */
+            border: 1px solid #c3e6cb; /* Borde para mensajes de éxito */
+        }
+    </style>
+</head>
+<body>
+    <form action="/registro" method="post">
+        <h2>Registro</h2>
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm-password">Confirmar Contraseña:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+
+        <button type="submit">Registrarse</button>
+    </form>
+
+    <form action="/inicio-sesion" method="post">
+        <h2>Iniciar Sesión</h2>
+        <label for="login-email">Correo electrónico:</label>
+        <input type="email" id="login-email" name="login-email" required>
+
+        <label for="login-password">Contraseña:</label>
+        <input type="password" id="login-password" name="login-password" required>
+
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <div class="login-link">
+        <p>¿Ya tienes una cuenta? <a href="#login">Inicia sesión</a>.</p>
+    </div>
+    <div id="message-container"></div>
+
+    <script>
+        // Función para mostrar mensajes
+        function showMessage(message, messageType) {
+            var messageContainer = document.getElementById('message-container');
+            messageContainer.innerHTML = message;
+            messageContainer.className = messageType;
+            messageContainer.style.display = 'block';
+        }
+        </script>
+</body>
+</html>
